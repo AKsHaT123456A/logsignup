@@ -19,7 +19,7 @@ const login = async (req, res) => {
         expiresIn: "50d",
       });
       await User.findByIdAndUpdate({_id:id},{$set:{verifyToken:accessToken}})
-      const { password,verifyToken,_id,...info } = user._doc;
+      const { password,_id,...info } = user._doc;
       res.status(201).json({ ...info});
     } catch (error) {
       res.status(500).json({ error: error.message });
