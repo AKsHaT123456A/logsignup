@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema(
   {
-    username: { type: String, required: true, unique: 1,trim:true},
+    username: { type: String, required: true, unique: 1, trim: true },
     email: { type: String, required: true },
     rollNum: {
       type: Number,
@@ -11,7 +11,11 @@ const UserSchema = new mongoose.Schema(
       unique: 1,
     },
     year: { type: String, required: true },
-    gender: { type: String, required: true },
+    gender: {
+      type: String,
+      required: true,
+      enum: ["Male", "Female", "Others"],
+    },
     mobNo: {
       type: Number,
       required: true,
@@ -36,7 +40,7 @@ const UserSchema = new mongoose.Schema(
       ],
     },
     password: { type: String, required: true },
-    verifyToken:{type: String,default:""},
+    verifyToken: { type: String, default: "" },
   },
   { timestamps: true }
 );
