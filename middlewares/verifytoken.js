@@ -4,11 +4,11 @@ const verify = (req, res, next) => {
   if (authHeader) {
     const token = authHeader.split(" ")[1];
     jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
-      if (err) res.status(403).json("Token is not a valid");
+      if (err) return res.status(403).json("Token is not a valid");
       req.user = user;
       next();
     });
-    res.status(200).json(true);
+    return res.status(200).json(true);
   } else {
     return res.status(401).json("You are not authenticated!");
   }
