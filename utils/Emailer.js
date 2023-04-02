@@ -10,7 +10,7 @@ const mailOptions = {
     from:process.env.senderEmail,
     to:email,
     subject:"Sending Email For password Reset",
-    text:`This Link Valid For 10 MINUTES https://loginsignup-production.up.railway.app/forgotpassword/${user}/${token}`
+    text:`This Link Valid For 10 MINUTES ${process.env.URI}/forgotpassword/${user}/${token}`
 }
 
 transporter.sendMail(mailOptions,(error,info)=>{
