@@ -1,7 +1,6 @@
 const User=require("../models/User");
 const jwt=require("jsonwebtoken");
 const CryptoJS = require("crypto-js");
-const a=0;
 const reset=async(req,res)=>{
         const {id,token} = req.params;
     
@@ -20,7 +19,7 @@ const reset=async(req,res)=>{
                 const setnewuserpass = await User.findByIdAndUpdate({_id:id},{$set:{password:newpassword}});
     
                 setnewuserpass.save();
-                res.status(201).json(setnewuserpass)
+                res.status(201).json("Password Reseted")
     
             }else{
                 res.status(401).json("User does not exist")
