@@ -12,6 +12,6 @@ router.post("/login",login);
 router.get("/verifyToken",verify);
 //verification
 router.patch("/register/verify",verifyOtp);
-router.get("/forgetPasswordLink",passlink);
+router.post("/forgetPasswordLink",passlink);
 router.post("/forgotpassword/:id/:token",reset);
 module.exports = router;
