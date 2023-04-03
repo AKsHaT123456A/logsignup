@@ -3,7 +3,7 @@ const emailer=require("../utils/Emailer");
 const jwt=require("jsonwebtoken");
 const passlink=async (req, res) => {
 
-  const { email } = req.body.email;
+  const email  = req.body.email;
 
   if (!email) {
     res.status(401).json("Enter Your Email");

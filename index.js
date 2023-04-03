@@ -2,6 +2,7 @@
 const express=require("express");
 const app=express();
 const cors=require("cors");
+const authRoute=require("./routes/auth");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", true);
 require("dotenv").config();
@@ -14,7 +15,6 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true);
   next();
 });
-const authRoute=require("./routes/Auth");
 const port = 3000 || process.env.PORT;
 mongoose
   .connect(process.env.DATABASE_KEY, {
