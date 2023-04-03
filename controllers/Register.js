@@ -24,13 +24,13 @@ const register = async (req, res) => {
     mobNo: req.body.mobNo,
     branch: req.body.branch,
   });
-  const newOtp = new Otp({
+  const newOtp =  new Otp({
     email: email,
     Otp: await bcrypt.hash(stringOtp, 10),
   });
   try {
-    await newUser.save();
     const otp=await newOtp.save();
+    await newUser.save();
     console.log(otp);
     otpEmailer(stringOtp, req.body.email);
     // const { password,verifyToken,__v,createdAt,updatedAt,_id,...info } = user._doc;
