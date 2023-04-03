@@ -2,8 +2,7 @@ const bcrypt = require("bcrypt");
 const Otp = require("../models/Otp");
 const verifyOtp= async (req, res) => {
   try {
-    const email = req.body.email;
-    const otpHolder = await Otp.findOne({email:email});
+    const otpHolder = await Otp.findOne({email:req.body.email});
     if (!otpHolder) {
      return res.status(400).json("You are using an expired OTP!");
     } else {
