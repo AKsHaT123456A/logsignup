@@ -31,8 +31,8 @@ const register=async (req, res) => {
           const user = await newUser.save();
           const otp = await newOtp.save();
           otpEmailer(stringOtp,req.body.email);
-          const { password,verifyToken,__v,createdAt,updatedAt,_id,...info } = user._doc;
-          res.status(201).json(info);
+          // const { password,verifyToken,__v,createdAt,updatedAt,_id,...info } = user._doc;
+          res.status(201).json({message:"Registered"});
         } catch (err) {
           res.status(500).json({ error: err.message });
         }
