@@ -1,4 +1,4 @@
-const router = require("express").Router();
+const router =  require("express").Router();
 const register=require("../controllers/Register");
 const login=require("../controllers/Login");
 const verify=require("../middlewares/verifytoken");
