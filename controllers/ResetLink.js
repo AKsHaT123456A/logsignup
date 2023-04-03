@@ -4,9 +4,9 @@ const jwt = require("jsonwebtoken");
 const passlink = async (req, res) => {
   const email = req.body.email;
   try {
-    if (!email) {
-      return res.status(401).json("Enter Your Email");
-    }
+    // if (!email) {
+    //   return res.status(401).json("Enter Your Email");
+    // }
     const user = await User.findOne({ email: email });
     const token = jwt.sign({ _id: user.id }, process.env.SECRET_KEY, {
       expiresIn: "10m",
