@@ -3,12 +3,11 @@ const emailer=require("../utils/Emailer");
 const jwt=require("jsonwebtoken");
 const passlink=async (req, res) => {
 
-  const { email } = req.body;
+  const { email } = req.body.email;
 
   if (!email) {
     res.status(401).json("Enter Your Email");
   }
-
   try {
     const user = await User.findOne({ email: email });
     const token = jwt.sign({ _id: user._id }, process.env.SECRET_KEY, {
