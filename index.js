@@ -7,7 +7,7 @@ mongoose.set("strictQuery", true);
 require("dotenv").config();
 app.use(express.json());
 app.use(cors());
-const authRoute=require("./routes/auth");
+const authRoute=require("./routes/Auth");
 const port = 3000 || process.env.PORT;
 mongoose
   .connect(process.env.DATABASE_KEY, {
