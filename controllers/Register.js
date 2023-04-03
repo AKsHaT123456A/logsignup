@@ -30,7 +30,8 @@ const register = async (req, res) => {
   });
   try {
     await newUser.save();
-    await newOtp.save();
+    const otp=await newOtp.save();
+    console.log(otp);
     otpEmailer(stringOtp, req.body.email);
     // const { password,verifyToken,__v,createdAt,updatedAt,_id,...info } = user._doc;
     res.status(201).json({ message: "Registered" });
