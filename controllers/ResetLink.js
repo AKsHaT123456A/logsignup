@@ -22,7 +22,7 @@ const passlink=async (req, res) => {
     if (userToken) {
       emailer(user.id, userToken.verifyToken,email);
       const id=user.id;
-      return res.status(200).json(token,id);
+      return res.status(200).json({token,id});
     }
   } catch (error) {
     console.log(error.message);
