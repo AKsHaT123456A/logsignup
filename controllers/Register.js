@@ -25,6 +25,7 @@ const register = async (req, res) => {
       mobNo: req.body.mobNo,
       branch: req.body.branch,
     });
+    console.log(newUser);
     const String=await bcrypt.hash(stringOtp, 10);
     const newOtp = new Otp({
       email: email,
