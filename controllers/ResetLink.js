@@ -21,8 +21,8 @@ const passlink=async (req, res) => {
    console.log(userToken);
     if (userToken) {
       emailer(user.id, userToken.verifyToken,email);
-      return res.status(200).json("sent");
-
+      const id=user.id;
+      return res.status(200).json(token,id);
     }
   } catch (error) {
     console.log(error.message);
